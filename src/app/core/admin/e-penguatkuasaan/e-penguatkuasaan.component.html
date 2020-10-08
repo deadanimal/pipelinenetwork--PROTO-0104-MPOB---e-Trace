@@ -1,0 +1,288 @@
+<div class="header">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">e-Penguatkuasaan</h6>
+
+          <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class=" breadcrumb-item">
+                <a href="javascript:void(0)"> <i class="fas fa-home text-dark"> </i> </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-dark"> Report and New Inspection</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-muted text-uppercase ls-1 mb-1">Report</h6>
+
+              <h5 class="h3 mb-0">Total Inspection</h5>
+            </div>
+
+            <div class="col">
+              <ul class="nav nav-pills justify-content-end">
+                <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales">
+                  <a href="javascript:void(0)" class="nav-link py-2 px-3"
+                  [ngClass]="{ active: clicked === true }"
+                  data-toggle="tab"
+                  (click)="clicked = true; clicked1 = false"
+                  >
+                    <span class="d-none d-md-block">Monthly</span>
+                    <span class="d-md-none">M</span>
+                  </a>
+                </li>
+                <li class="nav-item" data-toggle="chart" data-target="#chart-sales">
+                  <a href="javascript:void(0)" class="nav-link py-2 px-3" class="nav-link py-2 px-3"
+                    [ngClass]="{ active: clicked1 === true }" data-toggle="tab"
+                    (click)="clicked = false; clicked1 = true">
+                    <span class="d-none d-md-block">Weekly</span>
+                    <span class="d-md-none">W</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="chartdiv7"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-2">
+  <div class="card mb-4">
+    <div class="card-header bg-secondary">
+      <h3 class="mb-0"><i class="fas fa-search" aria-hidden="true"></i>&nbsp;Search</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" id="company_name" placeholder="Search company name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+            </div>
+            <input type="text" class="form-control"  placeholder="Date range"
+              name="bsDaterangepicker">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid mt-2">
+  <div class="card">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row mt-4 mb-4">
+          <div class="col text-left">
+            <a class="btn btn-sm btn-success text-white" (click)="openModal(createUser)">
+              <i class="fas fa-plus text-black"
+              aria-hidden="true"></i>&nbsp; Create New Inspection 
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" table-responsive mt-0">
+      <table class=" table align-items-center table-flush">
+        <thead class=" thead-light">
+          <tr>
+            <th class=" sort" scope="col">Company Name</th>
+
+            <th class=" sort" scope="col">Start Date of Inspection</th>
+
+            <th class=" sort" scope="col">End Date of Inspection</th>
+
+            <th class=" sort" scope="col">Comment/Finding</th>
+
+            <th class=" sort" scope="col">Location</th>
+
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <th scope="row">{{row.company_name}}</th>
+            <td>{{row.start_date}}</td>
+            <td>{{row.end_date}}</td>
+            <td><textarea rows="4" style="border:none !important">{{row.finding}}</textarea></td>
+            <td>{{row.location}}</td>
+            <td> <button class="btn btn-sm btn-dark" (click)="viewData(row)">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-default">
+        <h4 class="modal-title text-white my-auto">Inspection Details: {{company_name}}</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="input-form mb-4">
+          <label class="form-control-label">
+            Company Name
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{company_name}} type="text"  />
+        </div>
+        <div class="input-form mb-4">
+          <label class="form-control-label">
+            Start Date of Inspection
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{start_date}} type="text"  />
+        </div>
+        <div class="input-form mb-4">
+          <label class="form-control-label">
+            End Date of Inspection
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{end_date}} type="text"  />
+        </div>
+        <div class="input-form mb-4">
+          <label class="form-control-label">
+            Comment/Finding
+          </label>
+          <textarea class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{finding}} type="text"  row="8"></textarea>
+        </div>
+        <div class="input-form mb-4">
+          <label class="form-control-label">
+            Location
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{location}} type="text"  />
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="row-xl-12 modal-footer">
+        <button class="btn btn-success" type="button" (click)="confirm()">
+          Update
+        </button>
+        <button class="btn btn-outline-danger ml-auto" data-dismiss="modal" type="button" (click)="hide()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #createUser>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Create New Entry
+    </h6>
+
+    <button aria-label="Close" class="close" data-dismiss="modal" type="button" (click)="closeModal()">
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <label class="form-control-label">Company Name</label>
+        <input class="form-control" placeholder="Enter company name." formControlName="company_name" type="text">
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Start Date of Inspection</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <input type="date" class="form-control" placeholder="Enter date" name="bsDaterangepicker">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">End Date of Inspection</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <input type="date" class="form-control" placeholder="Enter date" name="bsDaterangepicker">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Comment/Finding</label>
+        <textarea class="form-control" placeholder="Enter finding" formControlName="comment" type="text" rows="8"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Location</label>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="city">City</label>
+              <input type="text" class="form-control" id="city" placeholder="Enter city">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="address">State</label>
+              <select class="form-control" id="address">
+                <option>Selangor</option>
+                <option>Kuala Lumpur</option>
+                <option>Johor</option>
+                <option>Penang</option>
+                <option>Sabah</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success" type="button" (click)="confirm()">
+      Create
+    </button>
+
+    <button class="btn btn-outline-danger ml-auto" data-dismiss="modal" type="button" (click)="closeModal()">
+      Close
+    </button>
+  </div>
+</ng-template>

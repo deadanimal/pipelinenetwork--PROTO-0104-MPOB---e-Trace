@@ -1,0 +1,253 @@
+<div class="header">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">My Task</h6>
+
+          <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class=" breadcrumb-item">
+                <a href="javascript:void(0)"> <i class="fas fa-tasks text-dark"> </i> </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card" style="height:620px !important;" >
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-muted text-uppercase ls-1 mb-1">Chart</h6>
+
+              <h5 class="h3 mb-0"> Job Status</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="chart">
+            <div class="amchart" id="piechartdiv6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="card" style="height:620px !important;">
+        <div class="card-header bg-secondary">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-muted text-uppercase ls-1 mb-1">Calendar</h6>
+
+              <h5 class="h3 mb-0">Tasks Schedule</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <app-calendar></app-calendar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-2">
+  <div class="card mb-4">
+    <div class="card-header bg-secondary">
+      <h3 class="mb-0"><i class="fas fa-search" aria-hidden="true"></i>&nbsp;Search</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" id="ID" placeholder="Search Tasks ID">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+            </div>
+            <input type="text" class="form-control" 
+              name="bsDaterangepicker">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col clearfix">
+          <button type="button" class="btn btn-secondary float-right">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-2">
+  <div class="card">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row mt-4 mb-4">
+          <div class="col text-left">
+            <a class="btn btn-sm btn-success text-white" (click)="openModal(createUser)">
+              <i class="fas fa-plus text-black"
+              aria-hidden="true"></i>&nbsp; Add New Task 
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" table-responsive">
+      <table class=" table align-items-center table-flush">
+        <thead class=" thead-light">
+          <tr>
+            <th class=" sort" scope="col">Task ID</th>
+
+            <th class=" sort" scope="col">Task Name</th>
+
+            <th class=" sort" scope="col">Date</th>
+
+            <th class=" sort" scope="col">Status</th>
+
+            <th scope="col" style="text-align:right">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <th scope="row">{{row.id}}</th>
+            <td>{{row.task_name}}</td>
+            <td>{{row.date}}</td>
+            <td>{{row.status}}</td>
+            <td style="text-align:right"> <button class="btn btn-sm btn-dark" (click)="viewData(row)">View</button>
+              <button class="btn btn-danger btn-sm btn-danger" (click)="deleteData(row)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-default">
+        <h4 class="modal-title text-white my-auto">Task Details: {{id}}</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="input-form mb-2">
+          <label class="form-control-label">
+            Task ID
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{id}} type="text" disabled/>
+        </div>
+        <div class="input-form mb-2">
+          <label class="form-control-label">
+            Task Name
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{task_name}} type="text"  />
+        </div>
+        <div class="input-form mb-2">
+          <label class="form-control-label">
+            Date
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{date}} type="text" disabled />
+        </div>
+        <div class="input-form mb-2">
+          <label class="form-control-label">
+            note
+          </label>
+          <textarea rows="6" class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{note}} type="text"></textarea>
+        </div>
+        <div class="input-form mb-2">
+          <label class="form-control-label">
+            Status
+          </label>
+          <input class="form-control" style="border:none !important; border-bottom: 1px solid #6373839d !important;"
+            placeholder={{status}} type="text" />
+        </div>
+
+        <!-- Modal footer -->
+      <div class="row-xl-12 modal-footer" >
+        <button class="btn btn-sm btn-light" type="button" style="float:left !important;">Download Pdf <i class="fas fa-download text-white"
+            aria-hidden="true"></i></button>
+        <button class="btn btn-sm btn-light" type="button" style="float:left !important;">Download Excel <i class="fas fa-download text-white"
+            aria-hidden="true"></i></button>
+      </div>
+      <div class="row-xl-12 modal-footer">
+        <button class="btn btn-success" type="button" (click)="confirm()">
+          Update
+        </button>
+        <button class="btn btn-outline-danger ml-auto" data-dismiss="modal" type="button" (click)="hide()">
+          Close
+        </button>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #createUser>
+  <div class="modal-header bg-default">
+    <h6 class="modal-title text-white my-auto" id="modal-title-default">
+      Create New Entry
+    </h6>
+
+    <button aria-label="Close" class="close" data-dismiss="modal" type="button" (click)="closeModal()">
+      <span aria-hidden="true" class="text-white my-auto"> × </span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <label class="form-control-label">Tasks Name</label>
+        <input class="form-control" placeholder="Enter task name." formControlName="company_name" type="text">
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Date</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <input type="date" class="form-control" placeholder="Enter date" name="bsDaterangepicker">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">notes</label>
+        <textarea class="form-control" placeholder="Enter notes" formControlName="comment" type="text" rows="6"></textarea>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success" type="button" (click)="confirm()">
+      Create
+    </button>
+
+    <button class="btn btn-outline-danger ml-auto" data-dismiss="modal" type="button" (click)="closeModal()">
+      Close
+    </button>
+  </div>
+</ng-template>

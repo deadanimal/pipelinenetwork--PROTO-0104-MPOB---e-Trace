@@ -1,0 +1,67 @@
+.logo-box {
+  text-align: center;
+  margin-bottom: 2rem;
+  .logo {
+    max-height: 9rem;
+  }
+}
+
+.auth-content {
+  // background-color: #FFB85D;
+  background-image: url("../../../assets/img/theme/wallpaper7.jpg"), linear-gradient(rgba(43, 46, 48, 0.3),rgba(31, 29, 29, 0.3));
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  background-blend-mode: overlay;
+
+}
+
+.forget-label {
+  font-size: 0.875rem;
+  cursor: pointer;
+  span {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.custom-control-label {
+  vertical-align: none !important;
+}
+
+.error-message {
+  color: #f5365c;
+  text-align: right;
+  font-size: 0.8em;
+  padding-top: 5px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+
+.card{
+//   // background:rgb(0,0,0);
+//   // background: transparent;
+//   // background:rgba(0,0,0,0.3);
+//   // filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+//   // zoom: 1;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.btn {
+  flex: 1 1 auto;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  text-transform: uppercase;
+ /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  border-radius: 10px;
+  // background-color: #4297A0;
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(24, 131, 99));
+  border-left:none !important
+ }
+

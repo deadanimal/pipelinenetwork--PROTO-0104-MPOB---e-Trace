@@ -1,0 +1,116 @@
+<div class="header">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">e-Notis</h6>
+
+          <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class=" breadcrumb-item">
+                <a href="javascript:void(0)"> <i class="fas fa-archive text-dark"> </i> </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-dark"> Publication/Announcement of Circular by MPOB</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-4">
+  <div class="row mb-4">
+    <div class="col-md-12 ">
+          <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img class="image-slider" [src]="images[0]" alt="Random first slide" width="100%" height="300px">
+              </div>
+              <div class="carousel-caption">
+                <h3>First slide label</h3>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img class="image-slider" [src]="images[1]" alt="Random second slide" width="100%" height="300px">
+              </div>
+              <div class="carousel-caption">
+                <h3>Second slide label</h3>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img class="image-slider" [src]="images[2]" alt="Random third slide" width="100%" height="300px">
+              </div>
+              <div class="carousel-caption">
+                <h3>Third slide label</h3>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img class="image-slider" [src]="images[3]" alt="Random third slide" width="100%" height="300px">
+              </div>
+              <div class="carousel-caption">
+                <h3>Fourth slide label</h3>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" >
+        <div class="card-header ">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mb-0">Publication by MPOB</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class=" table-responsive">
+            <table class=" table align-items-center table-flush">
+                <thead class=" thead-light">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">View File</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of rows">
+                        <th scope="row">{{row}}</th>
+                        <td> <button class="btn btn-sm btn-dark">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card" height="500px">
+        <div class="card-header ">
+          <div class="row align-items-center">
+            <div class="col">
+              <h5 class="h3 mb-0">Latest Activity by MPOB</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class=" table-responsive">
+            <app-calendar></app-calendar>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

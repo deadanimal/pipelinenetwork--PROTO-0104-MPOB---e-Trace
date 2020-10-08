@@ -1,0 +1,46 @@
+
+.btn{
+    background-color: transparent;
+    color: white;
+}
+
+.btn:hover{
+    // background-color:#ea4c89;
+    // border: 2px solid white;
+    color: rgb(224, 226, 122);
+}
+
+// .container-background{
+//     height:400px;
+//     // background-image: url("../../../assets/img/theme/wallpaper10.jpg");
+//     background-image: url("../../../assets/img/theme/wallpaper4.jpg"), linear-gradient(rgba(43, 46, 48, 1.0),rgba(31, 29, 29, 1.0));
+//     background-blend-mode: overlay;
+//     background-size: 100%;
+//     margin-top:-10px;
+// }
+
+.navbar-item{
+    height: 50px;
+    align-content: center;
+    margin-top: 25%;
+    width:100%;
+}
+
+.navbar{
+    height: 70px;
+}
+
+.search-name{
+    font-family: 'Lobster', cursive;
+    color: white;
+    font-size: xx-large;
+    text-align: center !important;
+}
+
+
+.input-group.md-form.form-sm.form-1 input{
+    border: 1px solid;
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+  }
+

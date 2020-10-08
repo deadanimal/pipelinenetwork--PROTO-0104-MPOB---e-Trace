@@ -1,0 +1,107 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">Dashboard</h6>
+
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                  <i class="fas fa-home text-dark"> </i>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-2">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">Application Status</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col text-center">
+                    <i class="fa fa-sync fa-5x text-info"></i><br /><br />In progress<br />
+                    1
+                  </div>
+                  <div class="col text-center">
+                    <i class="fa fa-check-circle fa-5x text-success"></i><br /><br />Approved<br />
+                    2
+                  </div>
+                  <div class="col text-center">
+                    <i class="fa fa-ban fa-5x text-danger"></i><br /><br />Rejected<br />
+                    0
+                  </div>
+                  <div class="col text-center">
+                    <i class="fa fa-credit-card fa-5x text-warning"></i><br /><br />Payment<br />
+                    1
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header ">
+            <div class="row align-items-center">
+              <div class="col">
+                <h5 class="h3 mb-0">My Applications</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class=" table-responsive">
+              <table class=" table align-items-center table-flush">
+                <thead class=" thead-light">
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Application Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of rows">
+                    <th scope="row">{{row.name}}</th>
+                    <th><span *ngIf="row.status == 'In Progress'" class="badge badge-pill badge-info">{{row.status}}</span>
+                      <span *ngIf="row.status == 'Approved'" class="badge badge-pill badge-success">{{row.status}}</span>
+                      <span *ngIf="row.status == 'Payment'" class="badge badge-pill badge-info">{{row.status}}</span>
+                    </th>
+            
+                    <td> <button class="btn btn-sm btn-dark">Edit</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card" style="height: 400px !important;">
+          <div class="card-header">
+            <h3 class="m-0">Daily CPO Prices</h3>
+          </div>
+          <div class="card-body">
+            <div id="userdashboardchartdiv" style="height: 300px !important;"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

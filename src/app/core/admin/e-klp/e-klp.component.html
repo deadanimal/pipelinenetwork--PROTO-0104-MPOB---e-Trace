@@ -1,0 +1,120 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-dark d-inline-block mb-0">e-KLP</h6>
+
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                  <i class="fas fa-bullhorn text-dark"> </i>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-12">
+
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header">
+            <h3 class="mb-0">Register KLP (Kerja Luar Pejabat)</h3>
+          </div>
+          <!-- Card body -->
+          <div class="card-body">
+            <form style="padding: 20px 20px 20px 20px;">
+              <div class="form-group">
+                <label class="form-control-label" for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="ic_number">IC Number</label>
+                    <input type="text" class="form-control" id="ic_number" placeholder="Enter IC number">
+                  </div>
+                </div>
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter a valid email">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="phone_number">Phone Number</label>
+                    <input type="text" class="form-control" id="phone_number" placeholder="Enter your phone number">
+                  </div>
+                </div>
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <label class="form-control-label">Date KLP</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                      </div>
+                      <input type="date" class="form-control" placeholder="Enter date" name="bsDaterangepicker">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="phone_number">Vehicle</label>
+                    <input type="text" class="form-control" id="phone_number" placeholder="Enter vehicle">
+                  </div>
+                </div>
+                <div class="col-xl-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="phone_number">Vehicle No.</label>
+                    <input type="text" class="form-control" id="phone_number" placeholder="Enter vehicle number">
+                  </div>
+                </div>
+              </div>
+         
+              <div class="form-group">
+                <label class="form-control-label" for="phone_number">Objective</label>
+                <input type="text" class="form-control" id="phone_number" placeholder="Enter objective">
+              </div>
+              <div class="row">
+                <div class="col-md-12 clearfix">
+                  <button class="btn btn-dark float-right" type="button" (click)="confirm()">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xl-12">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header">
+            <h3 class="mb-0">Events of KLP</h3>
+          </div>
+          <!-- Card body -->
+          <div class="card-body">
+            <app-calendar></app-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

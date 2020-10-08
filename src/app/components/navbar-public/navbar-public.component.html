@@ -1,0 +1,137 @@
+
+
+<nav class="navbar navbar-top navbar-expand navbar-dark bg-default border-bottom" id="navbar-main">
+	<div class="container-fluid">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<div class="input-group mt-0 md-form form-sm form-1 pl-0 col-xl-2">
+				<div class="input-group-prepend">
+					<span class="input-group-text bg-dark" id="basic-text1"><i class="fas fa-search text-white"
+							aria-hidden="true"></i></span>
+				</div>
+				<input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+			</div>
+
+			<ul class="navbar-nav align-items-lg-center box">
+				<li class="nav-item" style="cursor: pointer;">
+					<!-- <a  (click)="navigatePage('pages/landing')">
+						<img src="assets/img/logo/mpob-logo.png" width="50" height="50"/>
+					</a> -->
+				</li>
+				<li class="nav-item" style="cursor: pointer;">
+					<button class="btn align-middle text-sm  " routerLinkActive="active" style="cursor: pointer;"
+						(click)="navigatePage('home')">
+						<span class="nav-link-inner--text">HOME</span>
+					</button>
+				</li>
+				<li class="nav-item" style="cursor: pointer;">
+					<button class="btn align-middle  text-sm  " routerLinkActive="active" style="cursor: pointer;"
+						(click)="navigatePage('home')">
+						<span class="nav-link-inner--text">CORPORATE INFO</span>
+					</button>
+				</li>
+				<li class="nav-item" style="cursor: pointer;">
+					<button class="btn align-middle text-sm  " routerLinkActive="active" style="cursor: pointer;"
+						(click)="navigatePage('home')">
+						<span class="nav-link-inner--text">MPOB DIVISIONAL</span>
+					</button>
+				</li>
+				<li class="nav-item" style="cursor: pointer;">
+					<button class="btn align-middle  text-sm  " routerLinkActive="active" style="cursor: pointer;"
+						(click)="navigatePage('home')">
+						<span class="nav-link-inner--text">PHOTO GALLERY</span>
+					</button>
+				</li>
+				<li class="nav-item" style="cursor: pointer;">
+					<button class="btn align-middle  text-sm  " routerLinkActive="active" style="cursor: pointer;"
+						(click)="navigatePage('home')">
+						<span class="nav-link-inner--text">ARCHIVE</span>
+					</button>
+				</li>
+				<li class="nav-item" style="cursor: pointer;">
+					<button class="btn align-middle  text-sm  " routerLinkActive="active" style="cursor: pointer;"
+						(click)="navigatePage('home')">
+						<span class="nav-link-inner--text">CONTACT US</span>
+					</button>
+				</li>
+				<li class="nav-item" style="cursor: pointer;">
+					<button class="btn align-middle  text-sm  " routerLinkActive="active" style="cursor: pointer;"
+						(click)="navigatePage('home')">
+						<span class="nav-link-inner--text">FAQS</span>
+					</button>
+				</li>
+			</ul>
+
+			<ul class="navbar-nav align-items-lg-center ml-auto">
+				<li class="nav-item dropdown" dropdown placement="bottom-right">
+					<a class="nav-link pr-0 dropdown-toggle" role="button" dropdownToggle>
+						<div class="media align-items-center">
+							<div class="media-body ml-2 d-none d-lg-block">
+								<span class="mb-0 text-sm  font-weight-bold"><i class="fas fa-user text-white"
+										aria-hidden="true"></i>
+									LOGIN/SIGN UP
+								</span>
+							</div>
+						</div>
+					</a>
+					<div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" *dropdownMenu>
+						<a class="dropdown-item" (click)="navigatePage('login')">
+							<i class="fas fa-user fa-fw"></i> <span>LOGIN</span>
+						</a>
+						<a class="dropdown-item" (click)="navigatePage('signup')">
+							<i class="fas fa-cogs fa-fw"></i> <span>SIGN UP</span>
+						</a>
+					</div>
+				</li>
+			</ul>
+
+
+		</div>
+	</div>
+</nav>
+
+<div class="container-flluid">
+	<!-- <img src ="assets/img/theme/mpob-web.jpg" height="450" width="100%"> -->
+	<ngb-carousel *ngIf="images">
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+				<img class="image-slider" [src]="images[0]" alt="Random first slide" width="100%" height="450px">
+			</div>
+			<div class="carousel-caption">
+				<h3>First slide label</h3>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+				<img class="image-slider" [src]="images[1]" alt="Random second slide" width="100%" height="450px">
+			</div>
+			<div class="carousel-caption">
+				<h3>Second slide label</h3>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+				<img class="image-slider" [src]="images[2]" alt="Random third slide" width="100%" height="450px">
+			</div>
+			<div class="carousel-caption">
+				<h3>Third slide label</h3>
+			</div>
+		</ng-template>
+	</ngb-carousel>
+</div>
+
+<!-- <div class="container-fluid container-background">
+	<div class="row justify-content-center">
+		<div class="col mt-8">
+			<p class="search-name">What are you looking for?</p>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="input-group mt-2 md-form form-sm form-1 pl-0 col-6">
+			<div class="input-group-prepend">
+				<span class="input-group-text bg-dark" id="basic-text1"><i class="fas fa-search text-white"
+						aria-hidden="true"></i></span>
+			</div>
+			<input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+		</div>
+	</div>
+</div> -->
